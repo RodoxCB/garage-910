@@ -40,15 +40,27 @@ O admin (`/admin`) permite:
 
 ## Deploy na Vercel
 
-1. Crie um repositório no GitHub e faça push do código
-2. Importe o projeto em [vercel.com/new](https://vercel.com/new)
-3. Configure as variáveis de ambiente (`ADMIN_PASSWORD`, `BLOB_READ_WRITE_TOKEN`)
-4. Crie um **Blob Store** em Storage e vincule ao projeto
-5. Deploy automático a cada push na branch `main`
+**Production:** https://garage-910.vercel.app  
+**Repositório:** https://github.com/RodoxCB/garage-910  
+**Projeto Vercel:** `vdveiculos/garage-910`
+
+| Branch | Ambiente | Deploy |
+|--------|----------|--------|
+| `main` | Production | Automático a cada push |
+| `staging` | Preview | Automático a cada push |
+
+O projeto está conectado ao GitHub na Vercel. Cada push dispara um novo deploy.
+
+### Variáveis de ambiente (Vercel)
+
+- `ADMIN_PASSWORD` — configurado em Production + Preview
+- `BLOB_READ_WRITE_TOKEN` — criar Blob Store e adicionar manualmente
+
+Veja [DEPLOY.md](./DEPLOY.md) para detalhes completos.
 
 ### Domínio próprio
 
-Após o deploy, configure o domínio em **Vercel > Project Settings > Domains**.
+Após validar em staging/preview, configure em **Vercel → Project Settings → Domains**.
 
 ## Logo
 
@@ -65,4 +77,6 @@ Substitua `public/logo.svg` pela logo oficial (ou adicione `public/logo.png` e a
 
 ## CI
 
-GitHub Actions roda lint e build em cada push/PR na branch `main`.
+GitHub Actions roda lint e build em cada push/PR nas branches `main` e `staging`.
+
+> Para ativar o workflow, execute uma vez: `gh auth refresh -h github.com -s workflow` e faça push do arquivo `.github/workflows/ci.yml`.
