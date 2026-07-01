@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="100" fill="#0a0a0a"/>
+  <path d="M40 90 Q100 50 160 90" stroke="#f5c518" stroke-width="4" fill="none"/>
+  <text x="50" y="130" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#fff">Garage</text>
+  <text x="128" y="130" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e31837">910</text>
+</svg>

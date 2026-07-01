@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --color-black: #0a0a0a;
+  --color-yellow: #f5c518;
+  --color-yellow-dark: #c9a012;
+  --color-red: #e31837;
+  --color-white: #ffffff;
+  --color-gray: #a3a3a3;
+  --color-gray-dark: #1a1a1a;
+}
+
+@theme inline {
+  --color-garage-black: var(--color-black);
+  --color-garage-yellow: var(--color-yellow);
+  --color-garage-yellow-dark: var(--color-yellow-dark);
+  --color-garage-red: var(--color-red);
+  --color-garage-white: var(--color-white);
+  --color-garage-gray: var(--color-gray);
+  --color-garage-gray-dark: var(--color-gray-dark);
+  --font-serif: var(--font-playfair);
+  --font-display: var(--font-oswald);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-yellow);
+  color: var(--color-black);
+}
+
+.gold-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-yellow) 20%,
+    var(--color-yellow) 80%,
+    transparent
+  );
+  height: 1px;
+}
+
+.gold-glow {
+  box-shadow: 0 0 30px rgba(245, 197, 24, 0.15);
+}
