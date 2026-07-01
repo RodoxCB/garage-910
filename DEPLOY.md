@@ -1,5 +1,14 @@
 # Deploy na Vercel
 
+## URLs ativas
+
+| Ambiente | URL |
+|----------|-----|
+| **Production** (`main`) | https://garage-910.vercel.app |
+| **Preview** (`staging`) | https://garage-910-git-staging-vdveiculos.vercel.app *(ou URL por deploy)* |
+| **GitHub** | https://github.com/RodoxCB/garage-910 |
+| **Vercel Dashboard** | https://vercel.com/vdveiculos/garage-910 |
+
 ## Branches e ambientes
 
 | Branch | Ambiente Vercel | URL |
@@ -61,6 +70,17 @@ vercel
 vercel --prod
 ```
 
-## Domínio próprio
+## CI (GitHub Actions)
+
+O arquivo `.github/workflows/ci.yml` está pronto localmente. Para publicá-lo no GitHub:
+
+```bash
+gh auth refresh -h github.com -s workflow
+git add .github/workflows/ci.yml
+git commit -m "Add CI workflow for main and staging"
+git push origin main
+```
+
+Sem o scope `workflow`, o GitHub bloqueia push de arquivos em `.github/workflows/`. Os deploys na Vercel funcionam independentemente via integração Git.
 
 Após validar em preview/staging, adicione o domínio em **Project Settings → Domains** (apenas no ambiente Production).
