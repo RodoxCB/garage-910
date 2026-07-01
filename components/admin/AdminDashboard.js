@@ -182,6 +182,7 @@ export default function AdminDashboard() {
             <Field label="Mensagem padrão WhatsApp" value={content.contact.whatsappMessage} onChange={(v) => updateField("contact", "whatsappMessage", v)} />
             <Field label="Telefone" value={content.contact.phone} onChange={(v) => updateField("contact", "phone", v)} />
             <Field label="Endereço" value={content.contact.address} onChange={(v) => updateField("contact", "address", v)} />
+            <Field label="Link Google Maps" value={content.contact.mapsUrl || ""} onChange={(v) => updateField("contact", "mapsUrl", v)} />
             <Field label="Horário" value={content.contact.hours} onChange={(v) => updateField("contact", "hours", v)} />
           </Section>
 

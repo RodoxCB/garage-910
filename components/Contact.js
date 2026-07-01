@@ -26,7 +26,12 @@ export default function Contact({ contact }) {
               {contact.phone && (
                 <li className="flex items-start gap-3">
                   <PhoneIcon />
-                  <span>{contact.phone}</span>
+                  <a
+                    href={`tel:+${contact.whatsapp}`}
+                    className="transition-colors hover:text-garage-yellow"
+                  >
+                    {contact.phone}
+                  </a>
                 </li>
               )}
               {contact.address && (
@@ -42,6 +47,18 @@ export default function Contact({ contact }) {
                 </li>
               )}
             </ul>
+
+            {contact.mapsUrl && (
+              <a
+                href={contact.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-sm border border-garage-yellow/40 bg-garage-yellow/10 px-6 py-3 font-display text-sm font-semibold uppercase tracking-wider text-garage-yellow transition-all hover:bg-garage-yellow hover:text-garage-black"
+              >
+                <MapsIcon />
+                Como chegar
+              </a>
+            )}
           </div>
 
           <div className="flex flex-col items-center justify-center rounded-sm border border-garage-yellow/30 bg-garage-black p-8 text-center gold-glow">
@@ -99,6 +116,14 @@ function ClockIcon() {
   return (
     <svg className="mt-0.5 h-5 w-5 shrink-0 text-garage-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  );
+}
+
+function MapsIcon() {
+  return (
+    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
     </svg>
   );
 }
